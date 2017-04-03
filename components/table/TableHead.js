@@ -11,13 +11,13 @@ const factory = (Checkbox, FontIcon) => {
           key={key}
           className={onClick && theme.clickable}
           onClick={onClick}>
+          {name}
           {sortColumn === key && sortDirection === 'asc'
             && <FontIcon value="arrow_upward" className={theme.ascIcon} />
           }
           {sortColumn === key && sortDirection === 'desc'
             && <FontIcon value="arrow_downward" className={theme.descIcon} />
           }
-          {name}
         </th>
       );
     });
