@@ -84,7 +84,7 @@ class ProgressBar extends Component {
     const _className = classnames(theme[type], {
       [theme[mode]]: mode,
       [theme.multicolor]: multicolor
-    }, className);
+    }, className, 'primaryLoadingIndicator');
 
     return (
       <div
