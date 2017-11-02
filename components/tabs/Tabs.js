@@ -158,7 +158,7 @@ const factory = (Tab, TabContent, FontIcon) => {
       const { className, disableAnimatedBottomBorder, theme, fixed, inverse } = this.props;
       const { left: hasLeftArrow, right: hasRightArrow } = this.state.arrows;
       const { headers, contents } = this.parseChildren();
-      const classNamePointer = classnames(theme.pointer, {
+      const classNamePointer = classnames('primaryPointer', theme.pointer, {
         [theme.disableAnimation]: disableAnimatedBottomBorder
       });
 
