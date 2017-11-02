@@ -26,7 +26,9 @@ const factory = (ripple, FontIcon) => {
       onMouseLeave: PropTypes.func,
       onMouseUp: PropTypes.func,
       primary: PropTypes.bool,
+      primaryButton: PropTypes.bool,
       raised: PropTypes.bool,
+      secondaryButton: PropTypes.bool,
       theme: PropTypes.shape({
         accent: PropTypes.string,
         button: PropTypes.string,
@@ -68,7 +70,7 @@ const factory = (ripple, FontIcon) => {
 
     render () {
       const { accent, children, className, flat, floating, href, icon,
-        inverse, label, mini, neutral, primary, theme, type, raised, ...others} = this.props;
+        inverse, label, mini, neutral, primary, primaryButton, secondaryButton, theme, type, raised, ...others} = this.props;
       const element = href ? 'a' : 'button';
       const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
       const shape = flat ? 'flat' : raised ? 'raised' : floating ? 'floating' : 'flat';
@@ -77,7 +79,7 @@ const factory = (ripple, FontIcon) => {
         [theme[level]]: neutral,
         [theme.mini]: mini,
         [theme.inverse]: inverse
-      }, className);
+      }, className, primaryButton && 'primaryButton', secondaryButton && 'secondaryButton');
 
       const props = {
         ...others,

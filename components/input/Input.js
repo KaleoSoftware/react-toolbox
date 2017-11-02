@@ -146,8 +146,7 @@ const factory = (FontIcon) => {
               name, label: labelText, maxLength, multiline, required,
               theme, type, value, onKeyPress, rows = 1, ...others} = this.props;
       const length = maxLength && value ? value.length : 0;
-      const labelClassName = classnames(theme.label, {[theme.fixed]: !floating});
-
+      const labelClassName = classnames('primaryInputLabel', theme.label, {[theme.fixed]: !floating});
       const className = classnames(theme.input, {
         [theme.disabled]: disabled,
         [theme.errored]: error,
@@ -162,7 +161,7 @@ const factory = (FontIcon) => {
 
       const inputElementProps = {
         ...others,
-        className: classnames(theme.inputElement, {[theme.filled]: valuePresent}),
+        className: classnames(theme.inputElement, {[theme.filled]: valuePresent}, 'primaryInput'),
         onChange: this.handleChange,
         ref: 'input',
         role: 'input',
@@ -184,7 +183,7 @@ const factory = (FontIcon) => {
         <div data-react-toolbox='input' className={className}>
           {React.createElement(multiline ? 'textarea' : 'input', inputElementProps)}
           {icon ? <FontIcon className={theme.icon} value={icon} /> : null}
-          <span className={theme.bar} />
+          <span className={classnames('primaryInputUnderline', theme.bar)} />
           {labelText
             ? <label className={labelClassName}>
                 {labelText}
