@@ -64,7 +64,7 @@ class ProgressBar extends Component {
   renderCircular () {
     return (
       <svg className={this.props.theme.circle} viewBox="0 0 60 60">
-        <circle className={this.props.theme.path} style={this.circularStyle()} cx='30' cy='30' r='25' />
+        <circle className={classnames('primaryLoadingIndicator', this.props.theme.path)} style={this.circularStyle()} cx='30' cy='30' r='25' />
       </svg>
     );
   }
@@ -74,7 +74,7 @@ class ProgressBar extends Component {
     return (
       <div>
         <span ref='buffer' data-ref='buffer' className={this.props.theme.buffer} style={buffer}/>
-        <span ref='value' data-ref='value' className={this.props.theme.value} style={value}/>
+        <span ref='value' data-ref='value' className={classnames('primaryLoadingIndicator', this.props.theme.value)} style={value}/>
       </div>
     );
   }
@@ -84,7 +84,7 @@ class ProgressBar extends Component {
     const _className = classnames(theme[type], {
       [theme[mode]]: mode,
       [theme.multicolor]: multicolor
-    }, className, 'primaryLoadingIndicator');
+    }, className);
 
     return (
       <div
